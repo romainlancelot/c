@@ -3,7 +3,6 @@
 #include <ncurses.h>
 
 typedef struct Grille Grille;
-
 struct Grille {
     char * grille;
     int largeur;
@@ -31,8 +30,7 @@ void Grille_afficher(const Grille * grille) {
         for (x = 0; x < grille->largeur; x++) {
             printf("%c", *Grille_case(grille, x, y));
         }
-        printf(" %d", y);
-        printf(" %d", x);
+        printf("#");
     }
 }
 
@@ -45,26 +43,36 @@ int main() {
     int largeur = 60, hauteur = 20;
     Grille grille = Grille_creer(largeur, hauteur);
     int x = 1, y = 1;
-    
     initscr();
     noecho();
     cbreak();
-
     do {
         clear();
         Grille_afficher(&grille);
         mvprintw(y, x, "@");
-        mvprintw(y, x, "");
+        mvprintw(y, x, " ");
         refresh();
         getch();
         /* gestion des événements */
+        switch (getch()) {
+            case KEY_UP:
+                y--;
+                break;
+            case KEY_DOWN:
+                y++;
+                break;
+            case KEY_LEFT:
+                x--;
+                break;
+            case KEY_RIGHT:
+                x++;
+                break;
+        }
     } while(1);
-
     refresh();
     clrtoeol();
     refresh();
     endwin();
     Grille_free(&grille);
-    
     exit(EXIT_SUCCESS);
 }
