@@ -20,17 +20,34 @@ Grille Grille_creer(int largeur, int hauteur) {
     grille.grille = malloc(largeur * hauteur * sizeof(char));
     grille.largeur = largeur;
     grille.hauteur = hauteur;
+    for(int y = 1; y < hauteur - 1; y++) {
+        for(int x = 1; x < largeur - 1; x++) {
+            *Grille_case(&grille, x, y) = ' ';
+        }
+    }
+
+    for(int x = 0; x < largeur; x++) {
+        *Grille_case(&grille, x, 0) = '#';
+        *Grille_case(&grille, x, hauteur - 1) = '#';
+    }
+
+    for(int y = 0; y < hauteur; y++) {
+        *Grille_case(&grille, 0, y) = '#';
+        *Grille_case(&grille, largeur - 1, y) = '#';
+    }
+
+    *Grille_case(&grille, 1, 1) = '@';
     return grille;
 }
 
 /* affiche une grille à l'écran */
 void Grille_afficher(const Grille * grille) {
     int x, y;
-    for (y = 0; y < grille->hauteur; y++) {
-        for (x = 0; x < grille->largeur; x++) {
-            printf("%c", *Grille_case(grille, x, y));
+    for(y = 0; y < grille->hauteur; y++) {
+        for(x = 0; x < grille->largeur; x++) {
+            printw("%c", *Grille_case(grille, x, y));
         }
-        printf("#");
+        printw("\n");
     }
 }
 
@@ -54,17 +71,17 @@ int main() {
         refresh();
         getch();
         /* gestion des événements */
-        switch (getch()) {
-            case KEY_UP:
+        switch(getch()) {
+            case 'z':
                 y--;
                 break;
-            case KEY_DOWN:
+            case 's':
                 y++;
                 break;
-            case KEY_LEFT:
+            case 'q':
                 x--;
                 break;
-            case KEY_RIGHT:
+            case 'd':
                 x++;
                 break;
         }
