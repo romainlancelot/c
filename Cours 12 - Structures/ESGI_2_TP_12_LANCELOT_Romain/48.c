@@ -3,8 +3,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef struct Stats Stats;
 // Des Stats contenant la vie, l’attaque, la défense et la vitesse.
+typedef struct Stats Stats;
 struct Stats {
     int vie;
     int attaque;
@@ -40,7 +40,7 @@ enum Sorts {
     AUGMENTER_VITESSE
 };
 
-// Des sorts symbolisés par un nom, un type, un coût en mana et un effet sur une catérgorie de stats 
+// Énumération des sorts (qui influent sur les stats du joueur et ceux de l’adversaire).
 typedef struct Sort Sort;
 struct Sort {
     char * nom;
