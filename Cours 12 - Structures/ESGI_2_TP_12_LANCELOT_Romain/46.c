@@ -3,7 +3,6 @@
 #include <math.h>
 
 typedef struct Vecteur2d Vecteur2d;
-
 struct Vecteur2d {
     double x;
     double y;
@@ -25,6 +24,7 @@ Vecteur2d agrandissement(Vecteur2d vecteur, Vecteur2d vAgrandissement, double ra
 
 // fonction rotation de vecteur :
 Vecteur2d rotation(Vecteur2d vecteur, Vecteur2d vRotation, double angle) {
+    angle = angle * M_PI / 180;
     vecteur.x = (vecteur.x - vRotation.x) * cos(angle) - (vecteur.y - vRotation.y) * sin(angle) + vRotation.x;
     vecteur.y = (vecteur.x - vRotation.x) * sin(angle) + (vecteur.y - vRotation.y) * cos(angle) + vRotation.y;
     return vecteur;
@@ -40,17 +40,21 @@ int main() {
     vTranslation = translation(vecteur, vTranslation);
     printf("(%g, %g)\n", vTranslation.x, vTranslation.y);
 
+    vecteur = vTranslation;
+
     Vecteur2d vAgrandissement = {1, 0};
     double rapport = 0.5;
     printf("Agrandissement de rapport %g et de centre un Vecteur2d : (%g, %g)\n", rapport, vAgrandissement.x, vAgrandissement.y);    
     vAgrandissement = agrandissement(vecteur, vAgrandissement, rapport);
     printf("(%g, %g)\n", vAgrandissement.x, vAgrandissement.y);
 
+    vecteur = vAgrandissement;
+
     Vecteur2d vRotation = {0, 2};
     double angle = 135;
     printf("Rotation d'angle %g deg et de centre un Vecteur2d : (%g, %g)\n", angle, vRotation.x, vRotation.y);    
     vRotation = rotation(vecteur, vRotation, angle);
-    printf("(%e, %g)\n", vRotation.x, vRotation.y);
+    printf("(%e, %f)\n", vRotation.x, vRotation.y);
     
     exit(EXIT_SUCCESS);
 }
