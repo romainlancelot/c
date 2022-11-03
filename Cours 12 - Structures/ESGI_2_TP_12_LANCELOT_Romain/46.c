@@ -26,10 +26,11 @@ Vecteur2d agrandissement(Vecteur2d vecteur, Vecteur2d vAgrandissement, double ra
 
 // fonction rotation de vecteur :
 Vecteur2d rotation(Vecteur2d vecteur, Vecteur2d vRotation, double angle) {
+    Vecteur2d tmp;
     angle = angle * M_PI / 180;
-    vecteur.x = (vecteur.x - vRotation.x) * cos(angle) - (vecteur.y - vRotation.y) * sin(angle) + vRotation.x;
-    vecteur.y = (vecteur.x - vRotation.x) * sin(angle) + (vecteur.y - vRotation.y) * cos(angle) + vRotation.y;
-    return vecteur;
+    tmp.x = (vecteur.x - vRotation.x) * cos(angle) - (vecteur.y - vRotation.y) * sin(angle) + vRotation.x;
+    tmp.y = (vecteur.x - vRotation.x) * sin(angle) + (vecteur.y - vRotation.y) * cos(angle) + vRotation.y;
+    return tmp;
 }
 
 
