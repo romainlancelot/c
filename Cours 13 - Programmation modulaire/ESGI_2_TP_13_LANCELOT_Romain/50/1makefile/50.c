@@ -1,8 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
-#include "point.h"
-#include "triangle.h"
+#include "module.h"
 
 int main() {
     Triangle triangle = Triangle_creer(
