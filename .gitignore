@@ -1,3 +1,9 @@
+# IDE
 .vscode
+
+# exectables
 a.out
+*.exe
+
+# Compilation files
 *.gch
