@@ -2,9 +2,16 @@
 
 #ifndef DEF_HEADER_HASHMAP
 #define DEF_HEADER_HASHMAP
-
+/* Protection du module */
 #include <stdio.h>
 
+/**
+    Documentation du module et auteurs
+*/
+
+/* Macros publiques */
+
+/* Types publiques du module */
 /* Table de hachage */
 typedef struct HashMap HashMap;
 struct HashMap {
@@ -14,59 +21,21 @@ struct HashMap {
     int size;
 };
 
+/* Variables publiques du module */
 /* création d'une table de hachage */
-HashMap * HashMap_creer(int capacite) {
-    HashMap * map = malloc(sizeof(HashMap));
-    map->keys = malloc(capacite * sizeof(int));
-    map->values = malloc(capacite * sizeof(int));
-    map->capacity = capacite;
-    map->size = 0;
-    return map;
-}
+extern HashMap * HashMap_creer(int capacite);
 
+/* Fonctionnalités publiques du module */
 /* libération d'une table de hachage */
-void HashMap_free(HashMap ** hashmap) {
-    free((*hashmap)->keys);
-    free((*hashmap)->values);
-    free(*hashmap);
-    *hashmap = NULL;
-}
+extern void HashMap_free(HashMap ** hashmap);
 
 /* ajout de 1 à la valeur associée à key, affectation à 1 si non trouvée */
-int HashMap_ajouter(HashMap * hashmap, int key) {
-    int i;
-    for(i = 0; i < hashmap->size; ++i) {
-        if(hashmap->keys[i] == key) {
-            hashmap->values[i]++;
-            return hashmap->values[i];
-        }
-    }
-    hashmap->keys[hashmap->size] = key;
-    hashmap->values[hashmap->size] = 1;
-    hashmap->size++;
-    return 1;
-}
+extern int HashMap_ajouter(HashMap * hashmap, int key);
 
 /* affiche la table de hachage dans un flux flow */
-void HashMap_afficher(FILE * flow, const HashMap * hashmap) {
-    int i;
-    for(i = 0; i < hashmap->size; ++i) {
-        fprintf(flow, "%d: %d", hashmap->keys[i], hashmap->values[i]);
-        if(i < hashmap->size - 1) {
-            fprintf(flow, ", ");
-        }
-    }
-}
+extern void HashMap_afficher(FILE * flow, const HashMap * hashmap);
 
 /* renvoie le nombre d'ajouts de la clé key (valeur associée) */
-int HashMap_compter(const HashMap * hashmap, int key) {
-    int i;
-    for(i = 0; i < hashmap->size; ++i) {
-        if(hashmap->keys[i] == key) {
-            return hashmap->values[i];
-        }
-    }
-    return 0;
-}
+extern int HashMap_compter(const HashMap * hashmap, int key);
 
 #endif

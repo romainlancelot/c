@@ -8,7 +8,7 @@
 #include "hashmap.h"
 
 #define BENCHMARKS
-#undef BENCHMARKS
+// #undef BENCHMARKS
 
 #ifdef BENCHMARKS
 #define CAPACITY 10000
