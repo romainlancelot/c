@@ -1,3 +1,5 @@
+// Romain LANCELOT - 2ESGI A4
+
 #ifndef DEF_HEADER_TRIANGLE
 #define DEF_HEADER_TRIANGLE
 /* Protection du module */

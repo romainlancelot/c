@@ -1,3 +1,5 @@
+# Romain LANCELOT - 2ESGI A4
+
 executable : 50.o module.o
 	gcc -o executable 50.o module.o -lm
 
