@@ -1,4 +1,5 @@
 // Romain LANCELOT - 2ESGI A4
+// Exercice très (trop ?) dur ...
 
 #include <stdio.h>
 #include <stdlib.h>
