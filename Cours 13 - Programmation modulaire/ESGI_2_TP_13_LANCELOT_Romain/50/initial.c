@@ -1,4 +1,5 @@
 // Romain LANCELOT - 2ESGI A4
+// Sujet du PDF, aucune modification n'a été apportée.
 
 #include <stdio.h>
 #include <stdlib.h>
