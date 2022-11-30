@@ -1,3 +1,5 @@
+// Romain LANCELOT - 2ESGI A4
+
 #include "point.h"
 /* Inclusion des déclarations du module */
 

@@ -1,3 +1,5 @@
+// Romain LANCELOT - 2ESGI A4
+
 #ifndef DEF_HEADER_MODULE
 #define DEF_HEADER_MODULE
 /* Protection du module */

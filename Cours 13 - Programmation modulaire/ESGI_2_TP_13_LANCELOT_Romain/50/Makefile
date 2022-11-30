@@ -1,3 +1,5 @@
+# Romain LANCELOT - 2ESGI A4
+
 executable : 50.o triangle.o point.o
 	gcc -o executable 50.o triangle.o point.o -lm
 
