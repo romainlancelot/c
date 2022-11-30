@@ -50,15 +50,7 @@ int HashMap_ajouter(HashMap * hashmap, int key) {
 }
 
 /* affiche la table de hachage dans un flux flow */
-void HashMap_afficher(FILE * flow, const HashMap * hashmap) {
-    int i;
-    for(i = 0; i < hashmap->size; ++i) {
-        fprintf(flow, "%d: %d", hashmap->keys[i], hashmap->values[i]);
-        if(i < hashmap->size - 1) {
-            fprintf(flow, ", ");
-        }
-    }
-}
+void HashMap_afficher(FILE * flow, const HashMap * hashmap);
 
 /* renvoie le nombre d'ajouts de la clé key (valeur associée) */
 int HashMap_compter(const HashMap * hashmap, int key) {
