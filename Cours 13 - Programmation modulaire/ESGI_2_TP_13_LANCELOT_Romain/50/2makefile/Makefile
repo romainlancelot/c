@@ -6,7 +6,7 @@ executable : 50.o triangle.o point.o
 50.o : 50.c
 	gcc -c 50.c
 
-triangle.o : triangle.c triangle.h
+triangle.o : triangle.c triangle.h point.h
 	gcc -c triangle.c
 
 point.o : point.c point.h
