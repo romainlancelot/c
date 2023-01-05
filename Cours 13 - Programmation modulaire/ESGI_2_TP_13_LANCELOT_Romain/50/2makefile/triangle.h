@@ -3,6 +3,7 @@
 #ifndef DEF_HEADER_TRIANGLE
 #define DEF_HEADER_TRIANGLE
 /* Protection du module */
+#include "point.h"
 
 /**
     Documentation du module et auteurs

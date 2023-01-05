@@ -1,7 +1,6 @@
 // Romain LANCELOT - 2ESGI A4
 
 #include "triangle.h"
-#include "point.h"
 /* Inclusion des déclarations du module */
 
 #include <stdio.h>
