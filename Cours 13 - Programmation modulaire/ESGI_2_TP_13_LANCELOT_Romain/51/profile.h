@@ -1,5 +1,7 @@
 // Romain LANCELOT - 2ESGI A4
 
+
+#define exit(ret) printf("> Exit function at line %d with value %s\n", __FUNCTION__, __LINE__, #ret); exit;
 // START_FUNCTION prend le type de retour, le nom et les arguments de la fonction.
 #define START_FUNCTION(ret, name, ...) \
     ret name(__VA_ARGS__) { \
